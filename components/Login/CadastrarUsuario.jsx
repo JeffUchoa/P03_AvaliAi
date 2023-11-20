@@ -30,7 +30,11 @@ const CadastrarUsuario = () => {
   return (
     <View style={Styles.background}>
       <View style={Styles.grid}>
-        <View>
+        <View style={Styles.seta}>
+          <Image
+            style={Styles.icon_voltar}
+            source={require("../../assets/icon_voltar.png")}
+          />
           <Text
             style={{
               fontFamily: "titulo",
