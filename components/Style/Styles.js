@@ -13,7 +13,7 @@ const Styles = StyleSheet.create({
     height: "89%",
     width: "89%",
     borderWidth: 1,
-    // borderColor:"white",
+    borderColor: "white",
     justifyContent: "space-between",
     alignSelf: "center",
     justifySelf: "center",
@@ -24,6 +24,19 @@ const Styles = StyleSheet.create({
   texto: {
     marginBottom: 30,
     alignSelf: "center",
+  },
+  rodape: {
+    flex: 0,
+    height: 80,
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    bottom: 0,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    backgroundColor: "blue",
   },
   logo: {
     marginTop: 60,
@@ -45,6 +58,13 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
   },
   form: {},
+  rodape_icons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignSelf: "center",
+    gap: 100,
+  },
+  form: {},
   seta: {
     flex: 0,
     flexDirection: "row",
@@ -54,6 +74,10 @@ const Styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
+  },
+  icon_carrosel: {
+    width: 40,
+    height: 40,
   },
   icon_voltar: {
     width: 20,
