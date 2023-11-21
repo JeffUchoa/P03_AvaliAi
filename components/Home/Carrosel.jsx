@@ -29,7 +29,7 @@ const Carrosel = () => {
 
   return (
     <View style={Styles.background}>
-      <View style={Styles.grid}>
+      <View style={Styles.grid_carrosel}>
         <Text
           style={[
             Styles.titulo,
@@ -64,19 +64,35 @@ const Carrosel = () => {
             Estreia
           </Text>
         </View>
-        <View style={Styles.genero}>
-          <Image
-            style={Styles.genero_img}
-            source={require("../../assets/Movie_1.png")}
-          />
-          <Image
-            style={Styles.genero_img}
-            source={require("../../assets/Movie_2.png")}
-          />
-          <Image
-            style={Styles.genero_img}
-            source={require("../../assets/Movie_3.png")}
-          />
+        <View>
+          <View style={Styles.genero}>
+            <Image
+              style={Styles.genero_img}
+              source={require("../../assets/Movie_1.png")}
+            />
+            <Image
+              style={[Styles.genero_img, { marginLeft: 10, marginRight: 10 }]}
+              source={require("../../assets/Movie_2.png")}
+            />
+            <Image
+              style={Styles.genero_img}
+              source={require("../../assets/Movie_3.png")}
+            />
+          </View>
+          <View style={Styles.genero}>
+            <Image
+              style={Styles.genero_img}
+              source={require("../../assets/Movie_4.png")}
+            />
+            <Image
+              style={[Styles.genero_img, { marginLeft: 10, marginRight: 10 }]}
+              source={require("../../assets/Movie_5.png")}
+            />
+            <Image
+              style={Styles.genero_img}
+              source={require("../../assets/Movie_6.png")}
+            />
+          </View>
         </View>
       </View>
       <View style={Styles.rodape}>

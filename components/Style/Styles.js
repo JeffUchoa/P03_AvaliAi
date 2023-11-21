@@ -18,6 +18,15 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
     justifySelf: "center",
   },
+  grid_carrosel: {
+    flex: 1,
+    height: "89%",
+    width: "89%",
+    borderWidth: 1,
+    // borderColor: "white",
+    alignSelf: "center",
+    justifySelf: "center",
+  },
   titulo: {
     fontSize: 35,
   },
@@ -36,16 +45,13 @@ const Styles = StyleSheet.create({
     gap: 50,
   },
   genero: {
-    flex: 1,
     flexDirection: "row",
-    margin: 10,
     justifyContent: "space-around",
+    marginBottom: 20,
   },
   genero_img: {
     width: 110,
     height: 160,
-    flex: 1,
-    justifyContent: "space-evenly",
   },
   rodape: {
     flex: 0,
