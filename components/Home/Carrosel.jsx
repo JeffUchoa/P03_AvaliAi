@@ -30,7 +30,54 @@ const Carrosel = () => {
   return (
     <View style={Styles.background}>
       <View style={Styles.grid}>
-        <Text>Something</Text>
+        <Text
+          style={[
+            Styles.titulo,
+            { fontFamily: "titulo", color: "white", marginTop: 20 },
+          ]}
+        >
+          Categorias
+        </Text>
+        <View style={Styles.categorias}>
+          <Text
+            style={[
+              Styles.texto_categorias,
+              { fontFamily: "texto", color: "gray" },
+            ]}
+          >
+            Gênero
+          </Text>
+          <Text
+            style={[
+              Styles.texto_categorias,
+              { fontFamily: "texto", color: "gray" },
+            ]}
+          >
+            Populares
+          </Text>
+          <Text
+            style={[
+              Styles.texto_categorias,
+              { fontFamily: "texto", color: "gray" },
+            ]}
+          >
+            Estreia
+          </Text>
+        </View>
+        <View style={Styles.genero}>
+          <Image
+            style={Styles.genero_img}
+            source={require("../../assets/Movie_1.png")}
+          />
+          <Image
+            style={Styles.genero_img}
+            source={require("../../assets/Movie_2.png")}
+          />
+          <Image
+            style={Styles.genero_img}
+            source={require("../../assets/Movie_3.png")}
+          />
+        </View>
       </View>
       <View style={Styles.rodape}>
         <View style={Styles.rodape_icons}>

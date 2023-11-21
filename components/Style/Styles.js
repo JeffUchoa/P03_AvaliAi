@@ -25,6 +25,28 @@ const Styles = StyleSheet.create({
     marginBottom: 30,
     alignSelf: "center",
   },
+  texto_categorias: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  categorias: {
+    margin: 20,
+    flexDirection: "row",
+    alignSelf: "center",
+    gap: 50,
+  },
+  genero: {
+    flex: 1,
+    flexDirection: "row",
+    margin: 10,
+    justifyContent: "space-around",
+  },
+  genero_img: {
+    width: 110,
+    height: 160,
+    flex: 1,
+    justifyContent: "space-evenly",
+  },
   rodape: {
     flex: 0,
     height: 80,
@@ -57,14 +79,12 @@ const Styles = StyleSheet.create({
     justifyContent: "space-between",
     alignSelf: "center",
   },
-  form: {},
   rodape_icons: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignSelf: "center",
     gap: 100,
   },
-  form: {},
   seta: {
     flex: 0,
     flexDirection: "row",
