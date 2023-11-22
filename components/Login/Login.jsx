@@ -13,8 +13,16 @@ import { useFonts } from "expo-font";
 import React, { useEffect } from "react";
 import * as Font from "expo-font";
 import logo from "../../assets/preto.png";
+import { auth } from "../firebase/firebase_config";
+import UsuarioService from "../Services/UsuarioService";
+import { useState } from "react";
+
 
 const Login = () => {
+
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
+
   useEffect(() => {
     async function loadFont() {
       return await Font.loadAsync({
@@ -27,6 +35,17 @@ const Login = () => {
     });
   }, []);
 
+  const acaoBotao = () => {
+    UsuarioService.signIn(
+        auth,
+        email,
+        senha,
+        (userCredential) => {
+            console.log(userCredential)
+        }
+    )
+  }
+
   return (
     <View style={Styles.background}>
       <View style={Styles.grid}>
@@ -38,11 +57,12 @@ const Login = () => {
           >
             Entrar
           </Text>
-          <TextInput style={Styles.input} placeholder="E-mail ou Usuário" />
+          <TextInput style={Styles.input} placeholder="E-mail ou Usuário" onChangeText={email => setEmail(email) }/>
           <TextInput
             style={Styles.input}
             placeholder="Senha"
             keyboardType="numeric"
+            onChangeText={senha => setSenha(senha)}
           />
           <Text
             style={{
@@ -54,7 +74,7 @@ const Login = () => {
           >
             Esqueceu a senha?
           </Text>
-          <Pressable style={Styles.button}>
+          <Pressable style={Styles.button} onPress={acaoBotao}>
             <Text
               style={{ fontFamily: "texto", fontWeight: "bold", fontSize: 18 }}
             >

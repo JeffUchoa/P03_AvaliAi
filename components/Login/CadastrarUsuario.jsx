@@ -13,8 +13,14 @@ import { useFonts } from "expo-font";
 import React, { useEffect } from "react";
 import * as Font from "expo-font";
 import logo from "../../assets/preto.png";
+import UsuarioService from "../Services/UsuarioService";
+import { useState } from "react";
+import { auth } from "../firebase/firebase_config";
 
 const CadastrarUsuario = () => {
+    const [email, setEmail] = useState("")
+    const [senha, setSenha] = useState("")
+
   useEffect(() => {
     async function loadFont() {
       return await Font.loadAsync({
@@ -26,6 +32,17 @@ const CadastrarUsuario = () => {
       setFontReady(true);
     });
   }, []);
+
+  const acaoBotao = () => {
+    UsuarioService.signUp(
+        auth,
+        email,
+        senha,
+        (userCredential) => {
+            console.log(userCredential)
+        }
+    )
+  }
 
   return (
     <View style={Styles.background}>
@@ -53,20 +70,16 @@ const CadastrarUsuario = () => {
           >
             Criar conta
           </Text>
-          <TextInput style={Styles.input} placeholder="Primeiro nome" />
-          <TextInput style={Styles.input} placeholder="Email" />
+          <TextInput style={Styles.input} placeholder="Email" onChangeText={email => setEmail(email)} />
           <TextInput
             style={Styles.input}
             placeholder="Senha"
             keyboardType="numeric"
-          />
-          <TextInput
-            style={Styles.input}
-            placeholder="Confirmar senha"
-            keyboardType="numeric"
+            onChangeText={senha => setSenha(senha)}
+            
           />
 
-          <Pressable style={Styles.button}>
+          <Pressable style={Styles.button} onPress={acaoBotao}>
             <Text
               style={{ fontFamily: "texto", fontWeight: "bold", fontSize: 18 }}
             >

@@ -45,13 +45,17 @@ const Styles = StyleSheet.create({
     gap: 50,
   },
   genero: {
+    alignSelf:"center",
     flexDirection: "row",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     marginBottom: 20,
+    width:"100%",
+    flexWrap:"wrap"
   },
   genero_img: {
-    width: 110,
+    width: 100,
     height: 160,
+    borderRadius:8,
   },
   rodape: {
     flex: 0,
