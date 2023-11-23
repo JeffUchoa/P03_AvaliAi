@@ -60,7 +60,7 @@ const Styles = StyleSheet.create({
   },
   pesquisar_img: {
     width: 90,
-    height: 150,
+    height: 120,
     borderRadius: 8,
   },
   rodape: {
@@ -135,6 +135,10 @@ const Styles = StyleSheet.create({
     width: 354,
     height: 200,
     alignSelf: "center",
+  },
+  elenco: {
+    width: 90,
+    height: 90,
   },
   input: {
     height: 40,
