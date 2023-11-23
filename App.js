@@ -11,7 +11,7 @@ export default function App() {
     // <Login />
     // <CadastrarUsuario />
     // <Carrosel />
-    // <Pesquisar />
-    <Filme />
+    <Pesquisar />
+    // <Filme />
   );
 }
