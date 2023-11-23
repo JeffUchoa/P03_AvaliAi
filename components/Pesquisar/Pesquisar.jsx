@@ -53,8 +53,8 @@ const Pesquisar = () => {
               {
                 fontFamily: "titulo",
                 color: "white",
-                marginTop: 20,
-                marginLeft: 30,
+                marginTop: 22,
+                marginLeft: 45,
               },
             ]}
           >
@@ -145,7 +145,7 @@ const Pesquisar = () => {
                     marginLeft: 2,
                   }}
                 >
-                  131 minutes
+                  131 minutos
                 </Text>
               </View>
             </View>
