@@ -156,11 +156,11 @@ const Pesquisar = () => {
         <View style={Styles.rodape_icons}>
           <Image
             style={Styles.icon_carrosel}
-            source={require("../../assets/home_full.png")}
+            source={require("../../assets/home.png")}
           />
           <Image
             style={Styles.icon_carrosel}
-            source={require("../../assets/lupa.png")}
+            source={require("../../assets/lupa_full.png")}
           />
           <Image
             style={Styles.icon_carrosel}
