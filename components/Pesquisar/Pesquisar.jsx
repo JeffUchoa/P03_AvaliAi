@@ -32,125 +32,127 @@ const Pesquisar = () => {
   return (
     <View style={Styles.background}>
       <View style={Styles.grid_carrosel}>
-        <View style={[Styles.seta, { flexDirection: "row" }]}>
-          <Image
-            style={Styles.icon_voltar}
-            source={require("../../assets/icon_voltar.png")}
-          />
-          <Text
-            style={{
-              fontFamily: "titulo",
-              color: "white",
-              fontSize: 15,
-              marginTop: 40,
-            }}
-          >
-            Voltar
-          </Text>
-          <Text
-            style={[
-              Styles.titulo,
-              {
-                fontFamily: "titulo",
-                color: "white",
-                marginTop: 22,
-                marginLeft: 45,
-              },
-            ]}
-          >
-            Pesquisar
-          </Text>
-        </View>
-        <TextInput
-          style={[Styles.input, { marginTop: 80 }]}
-          placeholder="Pesquise seu filme!"
-        />
-        <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 30 }}>
-          <Image
-            style={Styles.pesquisar_img}
-            source={require("../../assets/Movie_2.png")}
-          />
-          <View
-            style={{ flexDirection: "column", marginLeft: 20, marginTop: 15 }}
-          >
+        <ScrollView>
+          <View style={[Styles.seta, { flexDirection: "row" }]}>
+            <Image
+              style={Styles.icon_voltar}
+              source={require("../../assets/icon_voltar.png")}
+            />
             <Text
               style={{
-                fontFamily: "texto",
-                fontSize: 18,
+                fontFamily: "titulo",
                 color: "white",
+                fontSize: 15,
+                marginTop: 40,
               }}
             >
-              Som da Felicidade
+              Voltar
             </Text>
-            <View style={{ marginTop: 15 }}>
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image
-                  style={Styles.icon_pesquisar}
-                  source={require("../../assets/Star.png")}
-                />
-                <Text
-                  style={{
-                    fontFamily: "texto",
-                    fontSize: 14,
-                    fontWeight: "bold",
-                    color: "#FF8700",
-                    marginLeft: 2,
-                  }}
-                >
-                  7,7
-                </Text>
-              </View>
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image
-                  style={Styles.icon_pesquisar}
-                  source={require("../../assets/Ticket.png")}
-                />
-                <Text
-                  style={{
-                    fontFamily: "texto",
-                    fontSize: 14,
-                    color: "white",
-                    marginLeft: 2,
-                  }}
-                >
-                  Biografia, Policial, Drama
-                </Text>
-              </View>
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image
-                  style={Styles.icon_pesquisar}
-                  source={require("../../assets/CalendarBlank.png")}
-                />
-                <Text
-                  style={{
-                    fontFamily: "texto",
-                    fontSize: 14,
-                    color: "white",
-                    marginLeft: 2,
-                  }}
-                >
-                  2023
-                </Text>
-              </View>
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image
-                  style={Styles.icon_pesquisar}
-                  source={require("../../assets/Clock.png")}
-                />
-                <Text
-                  style={{
-                    fontFamily: "texto",
-                    fontSize: 14,
-                    color: "white",
-                    marginLeft: 2,
-                  }}
-                >
-                  131 minutos
-                </Text>
+            <Text
+              style={[
+                Styles.fonte,
+                {
+                  fontFamily: "titulo",
+                  color: "white",
+                  marginTop: 30,
+                  marginLeft: 60,
+                },
+              ]}
+            >
+              Pesquisar
+            </Text>
+          </View>
+          <TextInput
+            style={[Styles.input, { marginTop: 80 }]}
+            placeholder="Pesquise seu filme!"
+          />
+          <View style={{ flexDirection: "row", marginLeft: 10, marginTop: 30 }}>
+            <Image
+              style={Styles.pesquisar_img}
+              source={require("../../assets/Movie_2.png")}
+            />
+            <View
+              style={{ flexDirection: "column", marginLeft: 20, marginTop: 15 }}
+            >
+              <Text
+                style={{
+                  fontFamily: "texto",
+                  fontSize: 18,
+                  color: "white",
+                }}
+              >
+                Som da Felicidade
+              </Text>
+              <View style={{ marginTop: 15 }}>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    style={Styles.icon_pesquisar}
+                    source={require("../../assets/Star.png")}
+                  />
+                  <Text
+                    style={{
+                      fontFamily: "texto",
+                      fontSize: 14,
+                      fontWeight: "bold",
+                      color: "#FF8700",
+                      marginLeft: 2,
+                    }}
+                  >
+                    7,7
+                  </Text>
+                </View>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    style={Styles.icon_pesquisar}
+                    source={require("../../assets/Ticket.png")}
+                  />
+                  <Text
+                    style={{
+                      fontFamily: "texto",
+                      fontSize: 14,
+                      color: "white",
+                      marginLeft: 2,
+                    }}
+                  >
+                    Biografia, Policial, Drama
+                  </Text>
+                </View>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    style={Styles.icon_pesquisar}
+                    source={require("../../assets/CalendarBlank.png")}
+                  />
+                  <Text
+                    style={{
+                      fontFamily: "texto",
+                      fontSize: 14,
+                      color: "white",
+                      marginLeft: 2,
+                    }}
+                  >
+                    2023
+                  </Text>
+                </View>
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    style={Styles.icon_pesquisar}
+                    source={require("../../assets/Clock.png")}
+                  />
+                  <Text
+                    style={{
+                      fontFamily: "texto",
+                      fontSize: 14,
+                      color: "white",
+                      marginLeft: 2,
+                    }}
+                  >
+                    131 minutos
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
-        </View>
+        </ScrollView>
       </View>
       <View style={Styles.rodape}>
         <View style={Styles.rodape_icons}>

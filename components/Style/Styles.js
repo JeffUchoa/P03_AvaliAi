@@ -13,7 +13,7 @@ const Styles = StyleSheet.create({
     height: "89%",
     width: "89%",
     borderWidth: 1,
-    borderColor: "white",
+    // borderColor: "white",
     justifyContent: "space-between",
     alignSelf: "center",
     justifySelf: "center",
@@ -30,6 +30,9 @@ const Styles = StyleSheet.create({
   },
   titulo: {
     fontSize: 35,
+  },
+  fonte: {
+    fontSize: 25,
   },
   texto: {
     marginBottom: 30,
@@ -59,8 +62,8 @@ const Styles = StyleSheet.create({
     borderRadius: 8,
   },
   pesquisar_img: {
-    width: 90,
-    height: 120,
+    width: 100,
+    height: 145,
     borderRadius: 8,
   },
   rodape: {
@@ -70,7 +73,7 @@ const Styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    position: "absolute",
+    position: "fixed",
     bottom: 0,
     borderColor: "#00C47E",
     borderWidth: 3,
@@ -127,8 +130,8 @@ const Styles = StyleSheet.create({
     height: 20,
   },
   icon_save: {
-    width: 22,
-    height: 28,
+    width: 20,
+    height: 26,
   },
   img_fundo: {
     marginTop: 90,
@@ -139,6 +142,14 @@ const Styles = StyleSheet.create({
   elenco: {
     width: 90,
     height: 90,
+  },
+  icon_perfil: {
+    width: 67,
+    height: 67,
+  },
+  icon_star: {
+    width: 25,
+    height: 25,
   },
   input: {
     height: 40,

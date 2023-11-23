@@ -6,6 +6,7 @@ import Carrosel from "./components/Home/Carrosel";
 import Pesquisar from "./components/Pesquisar/Pesquisar";
 import Filme from "./components/Filme/Filme";
 import Elenco from "./components/Filme/Elenco";
+import Avaliacao from "./components/Filme/Avaliação";
 
 export default function App() {
   return (
@@ -15,5 +16,6 @@ export default function App() {
     // <Pesquisar />
     // <Filme />
     <Elenco />
+    // <Avaliacao />
   );
 }
