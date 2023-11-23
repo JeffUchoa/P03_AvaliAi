@@ -17,6 +17,7 @@ const Styles = StyleSheet.create({
     justifyContent: "space-between",
     alignSelf: "center",
     justifySelf: "center",
+    flexDirection: "column",
   },
   grid_carrosel: {
     flex: 1,
@@ -45,17 +46,22 @@ const Styles = StyleSheet.create({
     gap: 50,
   },
   genero: {
-    alignSelf:"center",
+    alignSelf: "center",
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 20,
-    width:"100%",
-    flexWrap:"wrap"
+    width: "100%",
+    flexWrap: "wrap",
   },
   genero_img: {
     width: 100,
     height: 160,
-    borderRadius:8,
+    borderRadius: 8,
+  },
+  pesquisar_img: {
+    width: 90,
+    height: 150,
+    borderRadius: 8,
   },
   rodape: {
     flex: 0,
@@ -66,9 +72,11 @@ const Styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute",
     bottom: 0,
+    borderColor: "#00C47E",
+    borderWidth: 3,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    backgroundColor: "blue",
+    backgroundColor: "black",
   },
   logo: {
     marginTop: 60,
@@ -114,10 +122,14 @@ const Styles = StyleSheet.create({
     height: 20,
     marginTop: 40,
   },
+  icon_pesquisar: {
+    width: 20,
+    height: 20,
+  },
   input: {
     height: 40,
     marginTop: 30,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: "#BFBFBF",
     color: "white",
     padding: 10,

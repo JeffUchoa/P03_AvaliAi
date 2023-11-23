@@ -17,11 +17,9 @@ import { auth } from "../firebase/firebase_config";
 import UsuarioService from "../Services/UsuarioService";
 import { useState } from "react";
 
-
 const Login = () => {
-
-    const [email, setEmail] = useState("")
-    const [senha, setSenha] = useState("")
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
   useEffect(() => {
     async function loadFont() {
@@ -36,15 +34,10 @@ const Login = () => {
   }, []);
 
   const acaoBotao = () => {
-    UsuarioService.signIn(
-        auth,
-        email,
-        senha,
-        (userCredential) => {
-            console.log(userCredential)
-        }
-    )
-  }
+    UsuarioService.signIn(auth, email, senha, (userCredential) => {
+      console.log(userCredential);
+    });
+  };
 
   return (
     <View style={Styles.background}>
@@ -57,12 +50,16 @@ const Login = () => {
           >
             Entrar
           </Text>
-          <TextInput style={Styles.input} placeholder="E-mail ou Usuário" onChangeText={email => setEmail(email) }/>
+          <TextInput
+            style={Styles.input}
+            placeholder="E-mail ou Usuário"
+            onChangeText={(email) => setEmail(email)}
+          />
           <TextInput
             style={Styles.input}
             placeholder="Senha"
             keyboardType="numeric"
-            onChangeText={senha => setSenha(senha)}
+            onChangeText={(senha) => setSenha(senha)}
           />
           <Text
             style={{
