@@ -31,7 +31,9 @@ const Filme = () => {
 
   return (
     <View style={Styles.background}>
+      
       <View style={Styles.grid_carrosel}>
+        
         <ScrollView>
           <View style={[Styles.seta, { flexDirection: "row" }]}>
             <Image
@@ -68,7 +70,7 @@ const Filme = () => {
           </View>
           <Image
             style={[Styles.img_fundo, { position: "absolute" }]}
-            source={require("../../assets/image 2.png")}
+            source={require("../../assets/image2.png")}
           />
           <View style={{ flexDirection: "row", gap: 15, marginTop: 245 }}>
             <Image
@@ -173,7 +175,7 @@ const Filme = () => {
             </Text>
             <Image
               style={Styles.icon_pesquisar}
-              source={require("../../assets/Ticket_gray.png")}
+              source={require("../../assets/Ticket_Gray.png")}
             />
             <Text
               style={{

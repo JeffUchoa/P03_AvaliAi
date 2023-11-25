@@ -7,15 +7,21 @@ import Pesquisar from "./components/Pesquisar/Pesquisar";
 import Filme from "./components/Filme/Filme";
 import Elenco from "./components/Filme/Elenco";
 import Avaliacao from "./components/Filme/Avaliação";
+import Rodape from "./components/Home/Rodape/Rodape";
 
 export default function App() {
   return (
     // <Login />
     // <CadastrarUsuario />
-    // <Carrosel />
+    <View style={{width:"100%",height:"100%"}}>
+        <Filme />
+        
+        
+    </View>
+    
     // <Pesquisar />
     // <Filme />
-    <Elenco />
+    // <Elenco />
     // <Avaliacao />
   );
 }

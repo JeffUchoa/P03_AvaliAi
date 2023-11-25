@@ -61,6 +61,12 @@ const Styles = StyleSheet.create({
     height: 160,
     borderRadius: 8,
   },
+  genero_img_recente: {
+    width: 200,
+    height: 320,
+    borderRadius: 20,
+    marginRight:30
+  },
   pesquisar_img: {
     width: 100,
     height: 145,

@@ -13,9 +13,13 @@ import { useFonts } from "expo-font";
 import React, { useEffect } from "react";
 import * as Font from "expo-font";
 import logo from "../../assets/preto.png";
+import { getAuth } from "firebase/auth";
 import UsuarioService from "../Services/UsuarioService";
 import { useState } from "react";
-import { auth } from "../firebase/firebase_config";
+import { app } from "../firebase/firebase_config";
+
+
+const auth = getAuth(app)
 
 const CadastrarUsuario = () => {
     const [email, setEmail] = useState("")

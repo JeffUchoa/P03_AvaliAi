@@ -173,7 +173,7 @@ const Elenco = () => {
             </Text>
             <Image
               style={Styles.icon_pesquisar}
-              source={require("../../assets/Ticket_gray.png")}
+              source={require("../../assets/Ticket_Gray.png")}
             />
             <Text
               style={{

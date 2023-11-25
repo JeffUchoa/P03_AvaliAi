@@ -15,6 +15,9 @@ import * as Font from "expo-font";
 import logo from "../../assets/preto.png";
 import { useState } from "react";
 import { ScrollView } from "react-native";
+import Populares from "../Filme/Populares";
+
+
 
 const Carrosel = () => {
   const [filmes, setFilmes] = useState([]);
@@ -35,7 +38,7 @@ const Carrosel = () => {
     )
       .then((response) => response.json())
       .then((response) => setFilmes(response.results))
-      .then((response) => console.log(response.results))
+      
 
       .catch((err) => console.error(err));
   }, []);
@@ -50,16 +53,29 @@ const Carrosel = () => {
     loadFont().then(() => {
       setFontReady(true);
     });
+    
   }, []);
+
+  
 
   return (
     <View style={Styles.background}>
       <View style={Styles.grid_carrosel}>
+        
         <ScrollView>
+        <Text
+            style={[
+              Styles.fonte,
+              { fontFamily: "titulo", color: "white", marginTop: 70,marginBottom:20 },
+            ]}
+          >
+            Recentes
+          </Text>
+          <Populares />
           <Text
             style={[
               Styles.fonte,
-              { fontFamily: "titulo", color: "white", marginTop: 20 },
+              { fontFamily: "titulo", color: "white", marginTop: 50 },
             ]}
           >
             Categorias
@@ -94,7 +110,7 @@ const Carrosel = () => {
           <View style={Styles.genero}>
             {filmes.map((filme, index) => {
               const isThirdInRow = (index + 1) % 3 === 0;
-
+              
               return (
                 <React.Fragment key={index}>
                   <Pressable>
@@ -115,22 +131,7 @@ const Carrosel = () => {
           </View>
         </ScrollView>
       </View>
-      <View style={Styles.rodape}>
-        <View style={Styles.rodape_icons}>
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/home_full.png")}
-          />
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/lupa.png")}
-          />
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/person.png")}
-          />
-        </View>
-      </View>
+      
     </View>
   );
 };
