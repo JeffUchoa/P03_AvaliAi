@@ -8,17 +8,18 @@ import Filme from "./components/Filme/Filme";
 import Elenco from "./components/Filme/Elenco";
 import Avaliacao from "./components/Filme/Avaliação";
 import Rodape from "./components/Home/Rodape/Rodape";
+import Avaliar from "./components/Filme/Avaliar";
 
 export default function App() {
   return (
     // <Login />
     // <CadastrarUsuario />
-    <View style={{width:"100%",height:"100%"}}>
-        <Filme />
-        
-        
+    <View style={{ width: "100%", height: "100%" }}>
+      {/* <Filme /> */}
+      {/* <Carrosel /> */}
+      <Avaliar />
     </View>
-    
+
     // <Pesquisar />
     // <Filme />
     // <Elenco />
