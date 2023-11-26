@@ -18,7 +18,7 @@ import { app } from "../firebase/firebase_config";
 import UsuarioService from "../Services/UsuarioService";
 import { useState } from "react";
 
-const auth = getAuth(app)
+const auth = getAuth(app);
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +49,7 @@ const Login = () => {
 
         <View style={Styles.form}>
           <Text
-            style={[Styles.titulo, { fontFamily: "titulo", color: "white" }]}
+            style={[Styles.titulo, { fontFamily: "titulo", color: "#F2F2F2" }]}
           >
             Entrar
           </Text>
@@ -67,7 +67,7 @@ const Login = () => {
           <Text
             style={{
               fontFamily: "texto",
-              color: "white",
+              color: "#F2F2F2",
               fontWeight: "bold",
               marginTop: 15,
             }}
@@ -83,7 +83,9 @@ const Login = () => {
           </Pressable>
         </View>
         <View>
-          <Text style={[Styles.texto, { fontFamily: "texto", color: "white" }]}>
+          <Text
+            style={[Styles.texto, { fontFamily: "texto", color: "#F2F2F2" }]}
+          >
             Ou entre com
           </Text>
           <View style={Styles.socialMedia}>
@@ -101,7 +103,7 @@ const Login = () => {
         <Text
           style={[
             Styles.texto,
-            { fontFamily: "texto", color: "white", fontWeight: "bold" },
+            { fontFamily: "texto", color: "#F2F2F2", fontWeight: "bold" },
           ]}
         >
           Não possuí conta? Criar conta

@@ -41,7 +41,7 @@ const Elenco = () => {
             <Text
               style={{
                 fontFamily: "titulo",
-                color: "white",
+                color: "#F2F2F2",
                 fontSize: 15,
                 marginTop: 40,
               }}
@@ -53,7 +53,7 @@ const Elenco = () => {
                 Styles.fonte,
                 {
                   fontFamily: "titulo",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginTop: 30,
                   marginLeft: 60,
                 },
@@ -106,7 +106,7 @@ const Elenco = () => {
                   fontFamily: "texto",
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginTop: 5,
                 }}
               >
@@ -198,7 +198,7 @@ const Elenco = () => {
               style={{
                 fontFamily: "texto",
                 fontSize: 15,
-                color: "white",
+                color: "#F2F2F2",
                 marginLeft: 2,
               }}
             >
@@ -208,7 +208,7 @@ const Elenco = () => {
               style={{
                 fontFamily: "texto",
                 fontSize: 15,
-                color: "white",
+                color: "#F2F2F2",
                 marginLeft: 2,
               }}
             >
@@ -219,7 +219,7 @@ const Elenco = () => {
                 fontFamily: "texto",
                 fontSize: 15,
                 fontWeight: "bold",
-                color: "white",
+                color: "#F2F2F2",
                 marginLeft: 2,
               }}
             >
@@ -244,7 +244,7 @@ const Elenco = () => {
                 style={{
                   fontFamily: "texto",
                   fontSize: 15,
-                  color: "white",
+                  color: "#F2F2F2",
                   margin: 10,
                 }}
               >
@@ -266,7 +266,7 @@ const Elenco = () => {
                 style={{
                   fontFamily: "texto",
                   fontSize: 15,
-                  color: "white",
+                  color: "#F2F2F2",
                   margin: 10,
                 }}
               >
@@ -292,7 +292,7 @@ const Elenco = () => {
                 style={{
                   fontFamily: "texto",
                   fontSize: 15,
-                  color: "white",
+                  color: "#F2F2F2",
                   margin: 10,
                 }}
               >
@@ -314,7 +314,7 @@ const Elenco = () => {
                 style={{
                   fontFamily: "texto",
                   fontSize: 15,
-                  color: "white",
+                  color: "#F2F2F2",
                   margin: 10,
                 }}
               >

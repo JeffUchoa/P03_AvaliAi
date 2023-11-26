@@ -41,7 +41,7 @@ const Avaliacao = () => {
             <Text
               style={{
                 fontFamily: "titulo",
-                color: "white",
+                color: "#F2F2F2",
                 fontSize: 15,
                 marginTop: 40,
               }}
@@ -53,7 +53,7 @@ const Avaliacao = () => {
                 Styles.fonte,
                 {
                   fontFamily: "titulo",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginTop: 30,
                   marginLeft: 60,
                 },
@@ -83,7 +83,7 @@ const Avaliacao = () => {
                   fontFamily: "texto",
                   fontSize: 20,
                   fontWeight: "bold",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginLeft: 10,
                 }}
               >
@@ -94,7 +94,7 @@ const Avaliacao = () => {
           <Text
             style={{
               fontFamily: "titulo",
-              color: "white",
+              color: "#F2F2F2",
               fontSize: 22,
               marginTop: 10,
               marginBottom: 10,
@@ -140,7 +140,7 @@ const Avaliacao = () => {
             style={{
               fontFamily: "texto",
               fontSize: 14,
-              color: "white",
+              color: "#F2F2F2",
               textAlign: "justify",
               marginTop: 15,
             }}

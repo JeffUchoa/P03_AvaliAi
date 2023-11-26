@@ -9,6 +9,7 @@ import Elenco from "./components/Filme/Elenco";
 import Avaliacao from "./components/Filme/Avaliação";
 import Rodape from "./components/Home/Rodape/Rodape";
 import Avaliar from "./components/Filme/Avaliar";
+import Perfil from "./components/Perfil/Perfil";
 
 export default function App() {
   return (
@@ -17,10 +18,11 @@ export default function App() {
     <View style={{ width: "100%", height: "100%" }}>
       {/* <Filme /> */}
       {/* <Carrosel /> */}
-      <Avaliar />
+      {/* <Avaliar /> */}
+      {/* <Pesquisar /> */}
+      <Perfil />
     </View>
 
-    // <Pesquisar />
     // <Filme />
     // <Elenco />
     // <Avaliacao />

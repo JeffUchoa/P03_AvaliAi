@@ -18,12 +18,11 @@ import UsuarioService from "../Services/UsuarioService";
 import { useState } from "react";
 import { app } from "../firebase/firebase_config";
 
-
-const auth = getAuth(app)
+const auth = getAuth(app);
 
 const CadastrarUsuario = () => {
-    const [email, setEmail] = useState("")
-    const [senha, setSenha] = useState("")
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
   useEffect(() => {
     async function loadFont() {
@@ -38,15 +37,10 @@ const CadastrarUsuario = () => {
   }, []);
 
   const acaoBotao = () => {
-    UsuarioService.signUp(
-        auth,
-        email,
-        senha,
-        (userCredential) => {
-            console.log(userCredential)
-        }
-    )
-  }
+    UsuarioService.signUp(auth, email, senha, (userCredential) => {
+      console.log(userCredential);
+    });
+  };
 
   return (
     <View style={Styles.background}>
@@ -59,7 +53,7 @@ const CadastrarUsuario = () => {
           <Text
             style={{
               fontFamily: "titulo",
-              color: "white",
+              color: "#F2F2F2",
               fontSize: 15,
               marginTop: 40,
             }}
@@ -70,17 +64,20 @@ const CadastrarUsuario = () => {
 
         <View style={Styles.form}>
           <Text
-            style={[Styles.titulo, { fontFamily: "titulo", color: "white" }]}
+            style={[Styles.titulo, { fontFamily: "titulo", color: "#F2F2F2" }]}
           >
             Criar conta
           </Text>
-          <TextInput style={Styles.input} placeholder="Email" onChangeText={email => setEmail(email)} />
+          <TextInput
+            style={Styles.input}
+            placeholder="Email"
+            onChangeText={(email) => setEmail(email)}
+          />
           <TextInput
             style={Styles.input}
             placeholder="Senha"
             keyboardType="numeric"
-            onChangeText={senha => setSenha(senha)}
-            
+            onChangeText={(senha) => setSenha(senha)}
           />
 
           <Pressable style={Styles.button} onPress={acaoBotao}>
@@ -94,7 +91,7 @@ const CadastrarUsuario = () => {
         <Text
           style={[
             Styles.texto,
-            { fontFamily: "texto", color: "white", fontWeight: "bold" },
+            { fontFamily: "texto", color: "#F2F2F2", fontWeight: "bold" },
           ]}
         >
           Já tem uma conta? Entrar

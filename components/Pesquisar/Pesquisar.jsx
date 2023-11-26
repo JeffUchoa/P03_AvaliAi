@@ -41,7 +41,7 @@ const Pesquisar = () => {
             <Text
               style={{
                 fontFamily: "titulo",
-                color: "white",
+                color: "#F2F2F2",
                 fontSize: 15,
                 marginTop: 40,
               }}
@@ -53,7 +53,7 @@ const Pesquisar = () => {
                 Styles.fonte,
                 {
                   fontFamily: "titulo",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginTop: 30,
                   marginLeft: 60,
                 },
@@ -78,7 +78,7 @@ const Pesquisar = () => {
                 style={{
                   fontFamily: "texto",
                   fontSize: 18,
-                  color: "white",
+                  color: "#F2F2F2",
                 }}
               >
                 Som da Felicidade
@@ -110,7 +110,7 @@ const Pesquisar = () => {
                     style={{
                       fontFamily: "texto",
                       fontSize: 14,
-                      color: "white",
+                      color: "#F2F2F2",
                       marginLeft: 2,
                     }}
                   >
@@ -126,7 +126,7 @@ const Pesquisar = () => {
                     style={{
                       fontFamily: "texto",
                       fontSize: 14,
-                      color: "white",
+                      color: "#F2F2F2",
                       marginLeft: 2,
                     }}
                   >
@@ -142,7 +142,7 @@ const Pesquisar = () => {
                     style={{
                       fontFamily: "texto",
                       fontSize: 14,
-                      color: "white",
+                      color: "#F2F2F2",
                       marginLeft: 2,
                     }}
                   >

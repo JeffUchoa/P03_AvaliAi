@@ -40,7 +40,7 @@ const Avaliar = () => {
               fontFamily: "texto",
               fontWeight: "bold",
               fontSize: 30,
-              color: "white",
+              color: "#F2F2F2",
             }}
           >
             X
@@ -61,7 +61,7 @@ const Avaliar = () => {
             <Text
               style={{
                 fontFamily: "titulo",
-                color: "white",
+                color: "#F2F2F2",
                 fontSize: 22,
               }}
             >
@@ -124,7 +124,7 @@ const Avaliar = () => {
         <Text
           style={{
             fontFamily: "titulo",
-            color: "white",
+            color: "#F2F2F2",
             fontSize: 18,
             marginTop: 25,
           }}
@@ -163,7 +163,7 @@ const Avaliar = () => {
         <Text
           style={{
             fontFamily: "titulo",
-            color: "white",
+            color: "#F2F2F2",
             fontSize: 18,
             marginTop: 20,
           }}

@@ -167,6 +167,10 @@ const Styles = StyleSheet.create({
     width: 90,
     height: 90,
   },
+  perfil: {
+    width: 105,
+    height: 105,
+  },
   input: {
     height: 40,
     marginTop: 30,
@@ -197,6 +201,19 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
+  },
+  mais: {
+    marginTop: 30,
+    marginBottom: 20,
+    backgroundColor: "#F2F2F2",
+    color: "#F2F2F2",
+    borderRadius: 12,
+    width: "30%",
+    height: 35,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#F2F2F2",
   },
 });
 
