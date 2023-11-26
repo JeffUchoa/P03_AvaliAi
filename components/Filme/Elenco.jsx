@@ -68,7 +68,7 @@ const Elenco = () => {
           </View>
           <Image
             style={[Styles.img_fundo, { position: "absolute" }]}
-            source={require("../../assets/image 2.png")}
+            source={require("../../assets/image2.png")}
           />
           <View style={{ flexDirection: "row", gap: 15, marginTop: 245 }}>
             <Image

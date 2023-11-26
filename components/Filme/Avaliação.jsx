@@ -64,7 +64,7 @@ const Avaliacao = () => {
           </View>
           <Image
             style={Styles.img_fundo}
-            source={require("../../assets/image 2.png")}
+            source={require("../../assets/image2.png")}
           />
           <View
             style={{

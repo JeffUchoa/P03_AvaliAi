@@ -73,7 +73,7 @@ const Carrosel = () => {
           <Text
             style={[
               Styles.fonte,
-              { fontFamily: "titulo", color: "#F2F2F2", marginTop: 50 },
+              { fontFamily: "titulo", color: "#F2F2F2", marginTop: 40 },
             ]}
           >
             Categorias
@@ -82,7 +82,7 @@ const Carrosel = () => {
             <Text
               style={[
                 Styles.texto_categorias,
-                { fontFamily: "texto", color: "gray" },
+                { fontFamily: "texto", color: "#8C8C8C" },
               ]}
             >
               Gênero
@@ -90,7 +90,7 @@ const Carrosel = () => {
             <Text
               style={[
                 Styles.texto_categorias,
-                { fontFamily: "texto", color: "gray" },
+                { fontFamily: "texto", color: "#8C8C8C" },
               ]}
             >
               Populares
@@ -98,10 +98,52 @@ const Carrosel = () => {
             <Text
               style={[
                 Styles.texto_categorias,
-                { fontFamily: "texto", color: "gray" },
+                { fontFamily: "texto", color: "#8C8C8C" },
               ]}
             >
               Estreia
+            </Text>
+          </View>
+          <View style={Styles.generos}>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              terror
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              romance
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              comédia
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              drama
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              animação
             </Text>
           </View>
 

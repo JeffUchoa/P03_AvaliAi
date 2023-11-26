@@ -31,7 +31,7 @@ const Avaliar = () => {
 
   return (
     <View
-      style={[Styles.background, { backgroundColor: "rgba(28, 28, 28, 7.5)" }]}
+      style={[Styles.background, { backgroundColor: "rgba(28, 28, 28, 0.75)" }]}
     >
       <View style={[Styles.grid_modal, {}]}>
         <Pressable style={[Styles.icon_carrosel, { marginLeft: 295 }]}>

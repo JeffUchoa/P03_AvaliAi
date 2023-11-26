@@ -13,18 +13,16 @@ import Perfil from "./components/Perfil/Perfil";
 
 export default function App() {
   return (
-    // <Login />
-    // <CadastrarUsuario />
     <View style={{ width: "100%", height: "100%" }}>
+      {/* <Login /> */}
+      {/* <CadastrarUsuario /> */}
       {/* <Filme /> */}
       {/* <Carrosel /> */}
       {/* <Avaliar /> */}
       {/* <Pesquisar /> */}
-      <Perfil />
+      {/* <Perfil /> */}
+      {/* <Avaliacao /> */}
+      {/* <Elenco /> */}
     </View>
-
-    // <Filme />
-    // <Elenco />
-    // <Avaliacao />
   );
 }

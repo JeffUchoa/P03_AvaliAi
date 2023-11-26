@@ -51,9 +51,10 @@ const Styles = StyleSheet.create({
   texto_categorias: {
     fontSize: 20,
     fontWeight: "bold",
+    marginTop: 15,
   },
   categorias: {
-    margin: 20,
+    margin: 10,
     flexDirection: "row",
     alignSelf: "center",
     gap: 50,
@@ -65,6 +66,18 @@ const Styles = StyleSheet.create({
     marginBottom: 20,
     width: "100%",
     flexWrap: "wrap",
+  },
+  generos: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+    height: 50,
+    backgroundColor: "rgba(75, 75, 75, 0.5)",
+    marginBottom: 20,
+    gap: 21,
+  },
+  texto_generos: {
+    fontSize: 15,
   },
   genero_img: {
     width: 100,
