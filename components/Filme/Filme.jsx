@@ -16,7 +16,9 @@ import logo from "../../assets/preto.png";
 import { useState } from "react";
 import { ScrollView } from "react-native";
 
-const Filme = () => {
+const Filme = ({ navigation,route }) => {
+  const {filme} = route.params
+
   useEffect(() => {
     async function loadFont() {
       return await Font.loadAsync({
@@ -29,27 +31,65 @@ const Filme = () => {
     });
   }, []);
 
+  function obterGeneroFilme(...numeros) {
+    // Mapeamento de números para gêneros
+    const generos = {
+      28: "Ação",
+      12: "Aventura",
+      16: "Animação",
+      35: "Comédia",
+      80: "Crime",
+      99: "Documentário",
+      18: "Drama",
+      10751: "Família",
+      14: "Fantasia",
+      36: "História",
+      27: "Terror",
+      10402: "Música",
+      9648: "Mistério",
+      10749: "Romance",
+      878: "Ficção Científica",
+      10770: "Filme de TV",
+      53: "Suspense",
+      10752: "Guerra",
+      37: "Faroeste"
+    };
+
+    // Filtra os números que não estão no mapeamento
+    const generosEncontrados = numeros.filter(numero => generos.hasOwnProperty(numero));
+
+    // Retorna uma string com os gêneros encontrados
+    if (generosEncontrados.length > 0) {
+      return generosEncontrados.map(numero => generos[numero]).join(", ");
+    } else {
+      return "Nenhum gênero encontrado";
+    }
+  }
+
   return (
     <View style={Styles.background}>
       
       <View style={Styles.grid_carrosel}>
         
-        <ScrollView>
+        <ScrollView style={{marginTop:30,marginBottom:30}}>
           <View style={[Styles.seta, { flexDirection: "row" }]}>
-            <Image
-              style={Styles.icon_voltar}
-              source={require("../../assets/icon_voltar.png")}
-            />
-            <Text
-              style={{
-                fontFamily: "titulo",
-                color: "white",
-                fontSize: 15,
-                marginTop: 40,
-              }}
-            >
-              Voltar
-            </Text>
+            <Pressable style={[Styles.seta, { flexDirection: "row" }]}  onPress={() => navigation.goBack()}>
+              <Image
+                style={Styles.icon_voltar}
+                source={require("../../assets/icon_voltar.png")}
+              />
+              <Text
+                style={{
+                  fontFamily: "titulo",
+                  color: "white",
+                  fontSize: 15,
+                  marginTop: 40,
+                }}
+              >
+                Voltar
+              </Text>
+            </Pressable>
+            
             <Text
               style={[
                 Styles.fonte,
@@ -69,13 +109,17 @@ const Filme = () => {
             />
           </View>
           <Image
-            style={[Styles.img_fundo, { position: "absolute" }]}
-            source={require("../../assets/image2.png")}
+            style={[Styles.img_fundo2, { position: "absolute" }]}
+            source={{
+              uri: `https://image.tmdb.org/t/p/original/${filme.poster_path}`,
+            }}
           />
           <View style={{ flexDirection: "row", gap: 15, marginTop: 245 }}>
             <Image
               style={[Styles.pesquisar_img, { marginLeft: 20 }]}
-              source={require("../../assets/Filme_arn.png")}
+              source={{
+                uri: `https://image.tmdb.org/t/p/original/${filme.poster_path}`,
+              }}
             />
             <View style={{ marginTop: "20%" }}>
               <View
@@ -112,7 +156,7 @@ const Filme = () => {
                   marginTop: 5,
                 }}
               >
-                Spiderman No Way Home
+                {filme.title}
               </Text>
             </View>
           </View>
@@ -137,7 +181,7 @@ const Filme = () => {
                 marginLeft: 2,
               }}
             >
-              2021
+              {filme.release_date}
             </Text>
             <Text
               style={{
@@ -149,30 +193,9 @@ const Filme = () => {
             >
               |
             </Text>
-            <Image
-              style={Styles.icon_pesquisar}
-              source={require("../../assets/Clock_gray.png")}
-            />
-            <Text
-              style={{
-                fontFamily: "texto",
-                fontSize: 14,
-                color: "#92929D",
-                marginLeft: 2,
-              }}
-            >
-              148 minutos
-            </Text>
-            <Text
-              style={{
-                fontFamily: "texto",
-                fontSize: 14,
-                color: "#92929D",
-                marginLeft: 2,
-              }}
-            >
-              |
-            </Text>
+           
+            
+            
             <Image
               style={Styles.icon_pesquisar}
               source={require("../../assets/Ticket_Gray.png")}
@@ -185,7 +208,7 @@ const Filme = () => {
                 marginLeft: 2,
               }}
             >
-              Ação
+              {obterGeneroFilme(...filme.genre_ids)}
             </Text>
           </View>
           <View
@@ -238,10 +261,7 @@ const Filme = () => {
               marginBottom: 70,
             }}
           >
-            Peter Parker tem a sua identidade secreta revelada e pede ajuda ao
-            Doutor Estranho. Quando um feitiço para reverter o evento não sai
-            como o esperado, o Homem-Aranha e seu companheiro dos Vingadores
-            precisam enfrentar inimigos de todo o multiverso.
+            {filme.overview}
           </Text>
           <Pressable style={Styles.pressable}>
             <View style={{ flexDirection: "row", gap: 7 }}>

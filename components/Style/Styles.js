@@ -145,6 +145,14 @@ const Styles = StyleSheet.create({
     height: 200,
     alignSelf: "center",
   },
+  img_fundo2: {
+    marginTop: 90,
+    width: 354,
+    height: 200,
+    alignSelf: "center",
+    backgroundSize:"cover",
+    borderRadius:30
+  },
   elenco: {
     width: 90,
     height: 90,
