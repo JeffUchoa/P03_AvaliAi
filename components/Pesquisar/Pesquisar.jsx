@@ -100,7 +100,7 @@ const Pesquisar = ({ navigation }) => {
             <Text
               style={{
                 fontFamily: "titulo",
-                color: "white",
+                color: "#F2F2F2",
                 fontSize: 15,
                 marginTop: 40,
               }}
@@ -112,7 +112,7 @@ const Pesquisar = ({ navigation }) => {
                 Styles.fonte,
                 {
                   fontFamily: "titulo",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginTop: 30,
                   marginLeft: 60,
                 },

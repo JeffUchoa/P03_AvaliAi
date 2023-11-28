@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const Styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "#0D0D0D",
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
@@ -21,12 +21,22 @@ const Styles = StyleSheet.create({
   },
   grid_carrosel: {
     flex: 1,
-    height: "89%",
+    height: 200,
     width: "89%",
     borderWidth: 1,
     // borderColor: "white",
     alignSelf: "center",
     justifySelf: "center",
+  },
+  grid_modal: {
+    width: "89%",
+    borderWidth: 1,
+    borderColor: "white",
+    alignSelf: "center",
+    justifySelf: "center",
+    backgroundColor: "#0D0D0D",
+    padding: 20,
+    borderRadius: 22,
   },
   titulo: {
     fontSize: 35,
@@ -41,9 +51,10 @@ const Styles = StyleSheet.create({
   texto_categorias: {
     fontSize: 20,
     fontWeight: "bold",
+    marginTop: 15,
   },
   categorias: {
-    margin: 20,
+    margin: 10,
     flexDirection: "row",
     alignSelf: "center",
     gap: 50,
@@ -56,6 +67,18 @@ const Styles = StyleSheet.create({
     width: "100%",
     flexWrap: "wrap",
   },
+  generos: {
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+    height: 50,
+    backgroundColor: "rgba(75, 75, 75, 0.5)",
+    marginBottom: 20,
+    gap: 21,
+  },
+  texto_generos: {
+    fontSize: 15,
+  },
   genero_img: {
     width: 100,
     height: 160,
@@ -65,7 +88,7 @@ const Styles = StyleSheet.create({
     width: 200,
     height: 320,
     borderRadius: 20,
-    marginRight:30
+    marginRight: 30,
   },
   pesquisar_img: {
     width: 100,
@@ -139,6 +162,14 @@ const Styles = StyleSheet.create({
     width: 20,
     height: 26,
   },
+  icon_perfil: {
+    width: 67,
+    height: 67,
+  },
+  icon_star: {
+    width: 25,
+    height: 25,
+  },
   img_fundo: {
     marginTop: 90,
     width: 354,
@@ -157,13 +188,9 @@ const Styles = StyleSheet.create({
     width: 90,
     height: 90,
   },
-  icon_perfil: {
-    width: 67,
-    height: 67,
-  },
-  icon_star: {
-    width: 25,
-    height: 25,
+  perfil: {
+    width: 105,
+    height: 105,
   },
   input: {
     height: 40,
@@ -172,7 +199,7 @@ const Styles = StyleSheet.create({
     borderColor: "#BFBFBF",
     color: "white",
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 14,
   },
   button: {
     marginTop: 30,
@@ -195,6 +222,19 @@ const Styles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
+  },
+  mais: {
+    marginTop: 30,
+    marginBottom: 20,
+    backgroundColor: "#F2F2F2",
+    color: "#F2F2F2",
+    borderRadius: 12,
+    width: "30%",
+    height: 35,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "#F2F2F2",
   },
 });
 

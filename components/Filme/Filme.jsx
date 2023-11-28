@@ -68,7 +68,6 @@ const Filme = ({ navigation,route }) => {
 
   return (
     <View style={Styles.background}>
-      
       <View style={Styles.grid_carrosel}>
         
         <ScrollView style={{marginTop:30,marginBottom:30}}>
@@ -95,7 +94,7 @@ const Filme = ({ navigation,route }) => {
                 Styles.fonte,
                 {
                   fontFamily: "titulo",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginTop: 30,
                   marginLeft: 60,
                 },
@@ -152,7 +151,7 @@ const Filme = ({ navigation,route }) => {
                   fontFamily: "texto",
                   fontSize: 18,
                   fontWeight: "bold",
-                  color: "white",
+                  color: "#F2F2F2",
                   marginTop: 5,
                 }}
               >
@@ -224,7 +223,7 @@ const Filme = ({ navigation,route }) => {
                 fontFamily: "texto",
                 fontSize: 15,
                 fontWeight: "bold",
-                color: "white",
+                color: "#F2F2F2",
                 marginLeft: 2,
               }}
             >
@@ -234,7 +233,7 @@ const Filme = ({ navigation,route }) => {
               style={{
                 fontFamily: "texto",
                 fontSize: 15,
-                color: "white",
+                color: "#F2F2F2",
                 marginLeft: 2,
               }}
             >
@@ -244,7 +243,7 @@ const Filme = ({ navigation,route }) => {
               style={{
                 fontFamily: "texto",
                 fontSize: 15,
-                color: "white",
+                color: "#F2F2F2",
                 marginLeft: 2,
               }}
             >
@@ -255,7 +254,7 @@ const Filme = ({ navigation,route }) => {
             style={{
               fontFamily: "texto",
               fontSize: 14,
-              color: "white",
+              color: "#F2F2F2",
               textAlign: "justify",
               marginTop: 20,
               marginBottom: 70,

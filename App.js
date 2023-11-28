@@ -9,6 +9,8 @@ import Menu from "./components/Menu/Menu";
 // import Elenco from "./components/Filme/Elenco";
 
 import Rodape from "./components/Home/Rodape/Rodape";
+import Avaliar from "./components/Filme/Avaliar";
+import Perfil from "./components/Perfil/Perfil";
 
 export default function App() {
   return (

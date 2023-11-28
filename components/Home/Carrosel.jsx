@@ -17,8 +17,6 @@ import { useState } from "react";
 import { ScrollView } from "react-native";
 import Populares from "../Filme/Populares";
 
-
-
 const Carrosel = () => {
   const [filmes, setFilmes] = useState([]);
 
@@ -38,7 +36,6 @@ const Carrosel = () => {
     )
       .then((response) => response.json())
       .then((response) => setFilmes(response.results))
-      
 
       .catch((err) => console.error(err));
   }, []);
@@ -53,20 +50,21 @@ const Carrosel = () => {
     loadFont().then(() => {
       setFontReady(true);
     });
-    
   }, []);
-
-  
 
   return (
     <View style={Styles.background}>
       <View style={Styles.grid_carrosel}>
-        
         <ScrollView>
-        <Text
+          <Text
             style={[
               Styles.fonte,
-              { fontFamily: "titulo", color: "white", marginTop: 70,marginBottom:20 },
+              {
+                fontFamily: "titulo",
+                color: "#F2F2F2",
+                marginTop: 70,
+                marginBottom: 20,
+              },
             ]}
           >
             Recentes
@@ -75,7 +73,7 @@ const Carrosel = () => {
           <Text
             style={[
               Styles.fonte,
-              { fontFamily: "titulo", color: "white", marginTop: 50 },
+              { fontFamily: "titulo", color: "#F2F2F2", marginTop: 40 },
             ]}
           >
             Categorias
@@ -84,7 +82,7 @@ const Carrosel = () => {
             <Text
               style={[
                 Styles.texto_categorias,
-                { fontFamily: "texto", color: "gray" },
+                { fontFamily: "texto", color: "#8C8C8C" },
               ]}
             >
               Gênero
@@ -92,7 +90,7 @@ const Carrosel = () => {
             <Text
               style={[
                 Styles.texto_categorias,
-                { fontFamily: "texto", color: "gray" },
+                { fontFamily: "texto", color: "#8C8C8C" },
               ]}
             >
               Populares
@@ -100,17 +98,59 @@ const Carrosel = () => {
             <Text
               style={[
                 Styles.texto_categorias,
-                { fontFamily: "texto", color: "gray" },
+                { fontFamily: "texto", color: "#8C8C8C" },
               ]}
             >
               Estreia
+            </Text>
+          </View>
+          <View style={Styles.generos}>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              terror
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              romance
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              comédia
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              drama
+            </Text>
+            <Text
+              style={[
+                Styles.texto_generos,
+                { fontFamily: "texto", color: "#8C8C8C" },
+              ]}
+            >
+              animação
             </Text>
           </View>
 
           <View style={Styles.genero}>
             {filmes.map((filme, index) => {
               const isThirdInRow = (index + 1) % 3 === 0;
-              
+
               return (
                 <React.Fragment key={index}>
                   <Pressable>
@@ -131,7 +171,6 @@ const Carrosel = () => {
           </View>
         </ScrollView>
       </View>
-      
     </View>
   );
 };
