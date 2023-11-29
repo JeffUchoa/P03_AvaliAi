@@ -1,4 +1,6 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { useContext } from 'react';
+import { AuthContext } from "../Login/User";
 
 class UsuarioService{
 

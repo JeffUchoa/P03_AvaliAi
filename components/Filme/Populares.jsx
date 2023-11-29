@@ -14,9 +14,13 @@ import Styles from "../Style/Styles";
 import { useEffect } from "react";
 import FilmesService from "../Services/FilmesServices";
 import { firestoreDb } from "../firebase/firebase_config";
+import { useNavigation } from '@react-navigation/native';
 
 
-const Populares = () =>{
+const Populares = ({navigation}) =>{
+
+  
+    
 
     const [populares,setPopulares] = useState([])
     const [lista,setLista] = useState([])
@@ -65,15 +69,16 @@ const Populares = () =>{
     return(
         <ScrollView horizontal={true} style={{flexDirection: "row", width:"100%",position:"static"}}>
             
-            {lista.sort(compararPorNota).slice(0, 9).map((filme,index) => {
+            {lista.sort(compararPorNota).slice(0, 9).map((filme2,index) => {
               let contagem = index + 1;
-              
+              console.log(filme2)
                   return (
-                    <Pressable>
+                    
+                    <Pressable onPress={() => navigation.navigate("filme", { filme: filme2 })}>
                       
                       <Image
                         source={{
-                          uri: `https://image.tmdb.org/t/p/original${filme.poster_path}`,
+                          uri: `https://image.tmdb.org/t/p/original${filme2.poster_path}`,
                         }}
                         style={Styles.genero_img_recente}
                       />

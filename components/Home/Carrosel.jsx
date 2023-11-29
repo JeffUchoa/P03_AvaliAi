@@ -17,7 +17,7 @@ import { useState } from "react";
 import { ScrollView } from "react-native";
 import Populares from "../Filme/Populares";
 
-const Carrosel = () => {
+const Carrosel = ({ navigation }) => {
   const [filmes, setFilmes] = useState([]);
 
   useEffect(() => {
@@ -73,87 +73,18 @@ const Carrosel = () => {
           <Text
             style={[
               Styles.fonte,
-              { fontFamily: "titulo", color: "#F2F2F2", marginTop: 40 },
+              { fontFamily: "titulo", color: "#F2F2F2", marginTop: 30,marginBottom:30 },
             ]}
           >
-            Categorias
+            Estreia
           </Text>
-          <View style={Styles.categorias}>
-            <Text
-              style={[
-                Styles.texto_categorias,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              Gênero
-            </Text>
-            <Text
-              style={[
-                Styles.texto_categorias,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              Populares
-            </Text>
-            <Text
-              style={[
-                Styles.texto_categorias,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              Estreia
-            </Text>
-          </View>
-          <View style={Styles.generos}>
-            <Text
-              style={[
-                Styles.texto_generos,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              terror
-            </Text>
-            <Text
-              style={[
-                Styles.texto_generos,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              romance
-            </Text>
-            <Text
-              style={[
-                Styles.texto_generos,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              comédia
-            </Text>
-            <Text
-              style={[
-                Styles.texto_generos,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              drama
-            </Text>
-            <Text
-              style={[
-                Styles.texto_generos,
-                { fontFamily: "texto", color: "#8C8C8C" },
-              ]}
-            >
-              animação
-            </Text>
-          </View>
-
           <View style={Styles.genero}>
             {filmes.map((filme, index) => {
               const isThirdInRow = (index + 1) % 3 === 0;
 
               return (
                 <React.Fragment key={index}>
-                  <Pressable>
+                  <Pressable onPress={() => navigation.navigate("filme", { filme: filme })}>
                     <Image
                       source={{
                         uri: `https://image.tmdb.org/t/p/original/${filme.poster_path}`,

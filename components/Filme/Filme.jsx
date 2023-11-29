@@ -16,7 +16,7 @@ import logo from "../../assets/preto.png";
 import { useState } from "react";
 import { ScrollView } from "react-native";
 
-const Filme = ({ navigation,route }) => {
+const Filme = ({ navigation, route}) => {
   const {filme} = route.params
 
   useEffect(() => {
@@ -281,22 +281,7 @@ const Filme = ({ navigation,route }) => {
           </Pressable>
         </ScrollView>
       </View>
-      <View style={Styles.rodape}>
-        <View style={Styles.rodape_icons}>
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/home_full.png")}
-          />
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/lupa.png")}
-          />
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/person.png")}
-          />
-        </View>
-      </View>
+      
     </View>
   );
 };

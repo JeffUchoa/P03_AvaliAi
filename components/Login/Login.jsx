@@ -14,13 +14,16 @@ import React, { useEffect } from "react";
 import * as Font from "expo-font";
 import logo from "../../assets/preto.png";
 import { getAuth } from "firebase/auth";
+// import { firebase } from "@react-native-firebase/auth";
+
 import { app } from "../firebase/firebase_config";
 import UsuarioService from "../Services/UsuarioService";
+import { onAuthStateChanged } from "firebase/auth";
 import { useState } from "react";
 
 const auth = getAuth(app);
 
-const Login = () => {
+const Login = ({navigation}) => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
 
@@ -34,6 +37,19 @@ const Login = () => {
     loadFont().then(() => {
       setFontReady(true);
     });
+  }, []);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        navigation.navigate("aa")
+        // ...
+      } 
+    });
+
   }, []);
 
   const acaoBotao = () => {
@@ -100,14 +116,17 @@ const Login = () => {
             />
           </View>
         </View>
-        <Text
-          style={[
-            Styles.texto,
-            { fontFamily: "texto", color: "#F2F2F2", fontWeight: "bold" },
-          ]}
-        >
-          Não possuí conta? Criar conta
-        </Text>
+        <Pressable  onPress={() => navigation.navigate("cadastrar")}>
+          <Text
+            style={[
+              Styles.texto,
+              { fontFamily: "texto", color: "#F2F2F2", fontWeight: "bold" },
+            ]}
+          >
+            Não possuí conta? Criar conta
+          </Text>
+        </Pressable>
+        
       </View>
     </View>
   );

@@ -16,6 +16,7 @@ import logo from "../../assets/preto.png";
 import { useState } from "react";
 import { ScrollView } from "react-native";
 
+
 const Pesquisar = ({ navigation }) => {
   const [filmes, setFilmes] = useState([])
 
@@ -89,24 +90,15 @@ const Pesquisar = ({ navigation }) => {
   }, []);
 
   return (
+    
     <View style={Styles.background}>
+      
       <View style={Styles.grid_carrosel}>
+      
         <ScrollView style={{marginTop:30}}>
+          
           <View style={[Styles.seta, { flexDirection: "row" }]}>
-            <Image
-              style={Styles.icon_voltar}
-              source={require("../../assets/icon_voltar.png")}
-            />
-            <Text
-              style={{
-                fontFamily: "titulo",
-                color: "#F2F2F2",
-                fontSize: 15,
-                marginTop: 40,
-              }}
-            >
-              Voltar
-            </Text>
+            
             <Text
               style={[
                 Styles.fonte,
@@ -114,7 +106,7 @@ const Pesquisar = ({ navigation }) => {
                   fontFamily: "titulo",
                   color: "#F2F2F2",
                   marginTop: 30,
-                  marginLeft: 60,
+                  
                 },
               ]}
             >
@@ -204,22 +196,7 @@ const Pesquisar = ({ navigation }) => {
           </View>
         </ScrollView>
       </View>
-      <View style={Styles.rodape}>
-        <View style={Styles.rodape_icons}>
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/home.png")}
-          />
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/lupa_full.png")}
-          />
-          <Image
-            style={Styles.icon_carrosel}
-            source={require("../../assets/person.png")}
-          />
-        </View>
-      </View>
+      
     </View>
   );
 };

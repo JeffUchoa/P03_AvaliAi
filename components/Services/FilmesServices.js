@@ -30,6 +30,25 @@ class FilmesServices {
         .catch(error=>console.log(error))
     }
 
+    static listarAvaliacoes = (firestoreDb,callback) => {
+        getDocs(collection(firestoreDb,"filmes").document("avaliacoes"))
+        .then(
+            (snapshot)=>{
+                const filmes = []
+                snapshot.forEach(
+                    (document)=>{
+                        const id = document.id
+                        const {comentario,nota,userId} = document.data()
+                        filmes.push({id,userId,nota,comentario})
+                    }//document
+                )//foreach
+                callback(filmes)
+            }//snapshot
+        )//then
+        .catch(error=>console.log(error))
+    }
+
+
 }
 
 export default FilmesServices

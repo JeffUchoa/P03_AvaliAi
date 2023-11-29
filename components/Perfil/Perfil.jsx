@@ -16,8 +16,17 @@ import logo from "../../assets/preto.png";
 import { useState } from "react";
 import { ScrollView } from "react-native";
 import Populares from "../Filme/Populares";
+import { firestoreDb } from "../firebase/firebase_config";
+import { getAuth } from "firebase/auth";
+import FilmesServices from "../Services/FilmesServices";
+
 
 const Perfil = () => {
+
+  const [nome,setNome] = useState("")
+  const [populares,setPopulares] = useState([])
+
+
   useEffect(() => {
     async function loadFont() {
       return await Font.loadAsync({
@@ -30,11 +39,47 @@ const Perfil = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (user !== null) {
+      user.providerData.forEach((profile) => {
+        console.log("Sign-in provider: " + profile.providerId);
+        console.log("  Provider-specific UID: " + profile.uid);
+        console.log("  Name: " + profile.displayName);
+        setNome( profile.uid);
+        console.log("  Photo URL: " + profile.photoURL);
+      });
+    }
+  }, []);
+
+  useEffect(
+    ()=>{
+        FilmesServices.listarAvaliacoes(
+            firestoreDb,
+            (filmes) => {
+                
+                setPopulares(filmes);
+                console.log(filmes)
+                
+
+            }
+        )
+        
+    },
+    []
+)
+
+
+
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  
+
   return (
     <View style={Styles.background}>
       <View style={Styles.grid_carrosel}>
         <ScrollView>
-          <View style={[Styles.seta, { flexDirection: "row" }]}>
+          <View style={[Styles.seta, { flexDirection: "row", marginTop:30,justifyContent:"space-between",alignItems:"space-between" }]}>
             <Image
               style={Styles.icon_voltar}
               source={require("../../assets/icon_voltar.png")}
@@ -63,7 +108,7 @@ const Perfil = () => {
               Perfil
             </Text>
             <Image
-              style={[Styles.icon_carrosel, { marginTop: 35, marginLeft: 100 }]}
+              style={[Styles.icon_carrosel, { marginTop: 30, marginLeft: 80 }]}
               source={require("../../assets/config.png")}
             />
           </View>
@@ -88,18 +133,7 @@ const Perfil = () => {
                   fontSize: 20,
                 }}
               >
-                Maria Sofia
-              </Text>
-              <Text
-                style={{
-                  fontFamily: "texto",
-                  fontSize: 13,
-                  color: "#92929D",
-                  marginLeft: 2,
-                  marginTop: 2,
-                }}
-              >
-                Entrou no avalia aí em Nov. 2020
+                {nome}
               </Text>
               <Text
                 style={{
@@ -192,93 +226,7 @@ const Perfil = () => {
               </View>
             </View>
           </View>
-          <Pressable style={[Styles.mais, { marginTop: 15 }]}>
-            <Text
-              style={{
-                fontFamily: "texto",
-                fontWeight: "bold",
-                fontSize: 15,
-              }}
-            >
-              Ver Mais
-            </Text>
-          </Pressable>
-          <Text
-            style={{
-              fontFamily: "titulo",
-              color: "#F2F2F2",
-              fontSize: 22,
-              marginBottom: 20,
-            }}
-          >
-            WatchList
-          </Text>
-          <View style={{ flexDirection: "row", gap: 10 }}>
-            <View style={{ flexDirection: "column" }}>
-              <Image
-                style={[Styles.genero_img, { marginBottom: 5 }]}
-                source={require("../../assets/Movie_1.png")}
-              />
-              <Text
-                style={{
-                  fontFamily: "texto",
-                  fontSize: 9,
-                  color: "#92929D",
-                  marginBottom: 5,
-                }}
-              >
-                Doutor estranho e o{"\n"}
-                Multiverso da loucura
-              </Text>
-              <View style={{ flexDirection: "row" }}>
-                <Image
-                  style={Styles.icon_star}
-                  source={require("../../assets/Star_green.png")}
-                />
-                <Text
-                  style={{
-                    fontFamily: "texto",
-                    fontSize: 18,
-                    color: "#00C47E",
-                  }}
-                >
-                  6.3
-                </Text>
-              </View>
-            </View>
-            <View style={{ flexDirection: "column" }}>
-              <Image
-                style={[Styles.genero_img, { marginBottom: 5 }]}
-                source={require("../../assets/Movie_2.png")}
-              />
-              <Text
-                style={{
-                  fontFamily: "texto",
-                  fontSize: 9,
-                  color: "#92929D",
-                  marginBottom: 5,
-                }}
-              >
-                Doutor estranho e o{"\n"}
-                Multiverso da loucura
-              </Text>
-              <View style={{ flexDirection: "row" }}>
-                <Image
-                  style={Styles.icon_star}
-                  source={require("../../assets/Star_green.png")}
-                />
-                <Text
-                  style={{
-                    fontFamily: "texto",
-                    fontSize: 18,
-                    color: "#00C47E",
-                  }}
-                >
-                  6.3
-                </Text>
-              </View>
-            </View>
-          </View>
+          
         </ScrollView>
       </View>
     </View>
