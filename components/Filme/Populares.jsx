@@ -17,12 +17,12 @@ import { firestoreDb } from "../firebase/firebase_config";
 import { useNavigation } from '@react-navigation/native';
 
 
-const Populares = ({navigation}) =>{
+const Populares = () =>{
 
-  
+  const navigation = useNavigation();
     
 
-    const [populares,setPopulares] = useState([])
+    const [populares2,setPopulares2] = useState([])
     const [lista,setLista] = useState([])
     const compararPorNota = (a, b) => b.nota - a.nota;
 
@@ -47,7 +47,7 @@ const Populares = ({navigation}) =>{
                 (filmes) => {
                     
                     const compararPorNota = (a, b) => b.nota - a.nota;
-                    setPopulares(filmes.sort(compararPorNota));
+                    setPopulares2(filmes.sort(compararPorNota));
                     filmes.map((filme, index) => {
                       
                       buscarFilme(filme.movieId)
@@ -72,7 +72,7 @@ const Populares = ({navigation}) =>{
             {lista.sort(compararPorNota).slice(0, 9).map((filme2,index) => {
               let contagem = index + 1;
               console.log(filme2)
-                  return (
+                  return ( 
                     
                     <Pressable onPress={() => navigation.navigate("filme", { filme: filme2 })}>
                       

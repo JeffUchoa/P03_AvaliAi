@@ -15,9 +15,37 @@ import * as Font from "expo-font";
 import logo from "../../assets/preto.png";
 import { useState } from "react";
 import { ScrollView } from "react-native";
+import FilmesServices from "../Services/FilmesServices";
+import { firestoreDb } from "../firebase/firebase_config";
+
+import { getAuth } from "firebase/auth";
+
 
 const Filme = ({ navigation, route}) => {
   const {filme} = route.params
+  const {chave} = route.params
+  
+  const [populares,setPopulares] = useState([])
+  const [nome,setNome] = useState("")
+  const [ativo,setAtivo] = useState(false)
+
+
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  console.log(filme.id)
+
+  useEffect(() => {
+    if (user !== null) {
+      user.providerData.forEach((profile) => {
+        console.log("Sign-in provider: " + profile.providerId);
+        console.log("  Provider-specific UID: " + profile.uid);
+        console.log("  Name: " + profile.displayName);
+        setNome( profile.uid);
+        console.log("  Photo URL: " + profile.photoURL);
+      });
+    }
+  }, []);
 
   useEffect(() => {
     async function loadFont() {
@@ -25,11 +53,59 @@ const Filme = ({ navigation, route}) => {
         titulo: require("../Style/Inter-Bold.ttf"),
         texto: require("../Style/Inter-Light.ttf"),
       });
+      
     }
     loadFont().then(() => {
       setFontReady(true);
     });
   }, []);
+
+  useEffect(
+    ()=>{
+        FilmesServices.listarAvaliacoes(
+            firestoreDb,filme.id,
+            (filmes) => {
+                
+                setPopulares(filmes);
+                console.log(filmes)
+                
+
+            }
+        )
+        
+    },
+    []
+)
+useEffect(
+  ()=>{
+      FilmesServices.listarAvaliacoes(
+          firestoreDb,filme.id,
+          (filmes) => {
+              
+              setPopulares(filmes);
+              console.log(filmes)
+              
+
+          }
+      )
+      
+  },
+  [ativo,chave]
+)
+
+const deletar = (x) => {
+
+  const avaliacaoId = x;
+  console.log("Esse é meu ID ",x)
+
+  FilmesServices.deleteAvaliacao(firestoreDb, avaliacaoId, () => {
+    console.log("Avaliação deletada com sucesso!");
+});
+setAtivo(!ativo)
+  
+
+}
+
 
   function obterGeneroFilme(...numeros) {
     // Mapeamento de números para gêneros
@@ -65,10 +141,28 @@ const Filme = ({ navigation, route}) => {
       return "Nenhum gênero encontrado";
     }
   }
+  
 
   return (
     <View style={Styles.background}>
       <View style={Styles.grid_carrosel}>
+        <Pressable style={[Styles.pressable,{position:'absolute',bottom:60,zIndex:30,width:"60%",height:40}]} onPress={() => navigation.navigate("avaliar",{filme:filme})}>
+            <View style={{ flexDirection: "row", gap: 7 }}>
+              <Image
+                style={Styles.icon_pesquisar}
+                source={require("../../assets/add_box.png")}
+              />
+              <Text
+                style={{
+                  fontFamily: "texto",
+                  fontWeight: "bold",
+                  fontSize: 15,
+                }}
+              >
+                Avaliar
+              </Text>
+            </View>
+          </Pressable>
         
         <ScrollView style={{marginTop:30,marginBottom:30}}>
           <View style={[Styles.seta, { flexDirection: "row" }]}>
@@ -213,7 +307,7 @@ const Filme = ({ navigation, route}) => {
           <View
             style={{
               flexDirection: "row",
-              justifyContent: "center",
+              
               gap: 40,
               margin: 10,
             }}
@@ -221,34 +315,16 @@ const Filme = ({ navigation, route}) => {
             <Text
               style={{
                 fontFamily: "texto",
-                fontSize: 15,
+                fontSize: 30,
                 fontWeight: "bold",
                 color: "#F2F2F2",
-                marginLeft: 2,
+               
               }}
             >
-              Sobre
+              Sinopse
             </Text>
-            <Text
-              style={{
-                fontFamily: "texto",
-                fontSize: 15,
-                color: "#F2F2F2",
-                marginLeft: 2,
-              }}
-            >
-              Avaliações
-            </Text>
-            <Text
-              style={{
-                fontFamily: "texto",
-                fontSize: 15,
-                color: "#F2F2F2",
-                marginLeft: 2,
-              }}
-            >
-              Elenco
-            </Text>
+            
+            
           </View>
           <Text
             style={{
@@ -257,28 +333,123 @@ const Filme = ({ navigation, route}) => {
               color: "#F2F2F2",
               textAlign: "justify",
               marginTop: 20,
-              marginBottom: 70,
+              marginBottom: 40,
             }}
           >
             {filme.overview}
           </Text>
-          <Pressable style={Styles.pressable}>
-            <View style={{ flexDirection: "row", gap: 7 }}>
-              <Image
-                style={Styles.icon_pesquisar}
-                source={require("../../assets/add_box.png")}
-              />
-              <Text
-                style={{
-                  fontFamily: "texto",
-                  fontWeight: "bold",
-                  fontSize: 15,
-                }}
-              >
-                Avaliar
-              </Text>
-            </View>
-          </Pressable>
+          <Text
+              style={{
+                fontFamily: "texto",
+                fontSize: 30,
+                fontWeight: "bold",
+                color: "#F2F2F2",
+              }}
+            >
+              Avaliações
+            </Text>
+            
+          <View
+            style={{
+              flexDirection: "collum",
+              
+              marginTop: 20,
+              
+            }}
+          >
+            {populares.map((filme2,index) =>{
+              const avaliacao = {comentario:filme2.comentario,nota:filme2.nota,userId:filme2.userId}
+
+              return(
+                <View style={{ flexDirection: "collum", gap: 5,marginBottom: 30 }}>
+                  <View style={{ flexDirection: "row", gap: 5 }}>
+                    <Image
+                    style={[Styles.icon_perfil, {}]}
+                    source={require("../../assets/account_circle.png")}
+                  />
+                  <View style={{ flexDirection: "collum", gap: 5 }}>
+                      <Image
+                      style={{marginBottom:0}}
+                      source={require("../../assets/Star_green.png")}
+                    />
+                    
+                    <Text
+                      style={{
+                        fontFamily: "texto",
+                        fontSize: 18,
+                        color: "#00C47E",
+                      }}
+                    >
+                      {filme2.nota}
+                    </Text>
+                  </View>
+                  <Text
+                      style={{
+                        fontFamily: "titulo",
+                        fontSize: 18,
+                        color: "white",
+                      }}
+                    >
+                      {filme2.userId}
+                    </Text>
+                    
+                  
+
+                  </View>
+                  
+                  <Text
+            style={{
+              fontFamily: "texto",
+              fontSize: 14,
+              color: "white",
+              textAlign: "justify",
+              marginTop: 15,
+            }}
+          >
+            {filme2.comentario}
+          </Text>
+          {nome ==filme2.userId ?
+                <View style={{flexDirection:"row"}}>
+                  <Pressable onPress={()=> deletar(filme2.id)}>
+                    <Image
+                      style={{height:30,width:30}}
+                      source={require("../../assets/lixo.png")}
+                    />
+                  </Pressable>
+                  <Pressable onPress={()=> navigation.navigate("editar",{avaliacao,filme,avId:filme2.id})}>
+                    <Image
+                      style={{height:30,width:30}}
+                      source={require("../../assets/lapis.png")}
+                    />
+                  </Pressable>
+                </View>
+                     : null}
+                
+              
+                
+                <View style={{ flexDirection: "row", gap: 5 }}>
+                
+                  
+                  
+                
+                
+              </View>
+              
+                  
+              </View>
+                  
+              )
+
+
+            })}
+            
+            
+          </View>
+        
+          
+          
+            
+          
         </ScrollView>
       </View>
       

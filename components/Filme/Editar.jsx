@@ -20,7 +20,8 @@ import { firestoreDb } from "../firebase/firebase_config";
 import { getAuth } from "firebase/auth";
 import { v4 as uuidv4 } from 'uuid';
 
-const Avaliar = ({ navigation, route}) => {
+
+const Editar = ({ navigation, route}) => {
     const [nota,setNota] = useState(0)
     const [avaliacao2,setAvaliacao] = useState("")
     const [nome,setNome] = useState("")
@@ -32,6 +33,8 @@ const Avaliar = ({ navigation, route}) => {
 
 
     const {filme} = route.params
+    const {avaliacao} = route.params
+    const {avId} = route.params
   useEffect(() => {
     async function loadFont() {
       return await Font.loadAsync({
@@ -55,20 +58,15 @@ const Avaliar = ({ navigation, route}) => {
     }
   }, []);
 
-  const cadastrar = () => {
-
-    const avaliacao = {comentario:avaliacao2,nota,
-        userId:nome}
-    console.log(avaliacao)
-    FilmesServices.addAvaliacoes(
-        firestoreDb,
-        (id)=>{
-            console.log(id)
-        },
-        avaliacao
-    )
-    navigation.navigate("filme",{ filme: filme, chave:key })
-}
+  const atualizar = () => {
+    const novosDados = {comentario:avaliacao2,nota,
+      userId:nome}
+     
+    FilmesServices.updateAvaliacao(firestoreDb,avId, novosDados, () => {
+      console.log("Avaliação atualizada com sucesso!");
+  });
+  navigation.navigate("filme",{ filme: filme, chave:key })
+  }
 
   return (
     <View
@@ -76,16 +74,7 @@ const Avaliar = ({ navigation, route}) => {
     >
       <View style={[Styles.grid_modal, {}]}>
         <Pressable style={[Styles.icon_carrosel, { marginLeft: 295 }]}>
-          <Text
-            style={{
-              fontFamily: "texto",
-              fontWeight: "bold",
-              fontSize: 30,
-              color: "#F2F2F2",
-            }}
-          >
-            X
-          </Text>
+          
         </Pressable>
         <View
           style={{
@@ -154,13 +143,16 @@ const Avaliar = ({ navigation, route}) => {
           }}
         >
           <TextInput
+          defaultValue={avaliacao.nota}
           onChangeText={(nota) => setNota(nota)}
           style={[
             Styles.input,            
             
 
             { marginTop: 15, verticalAlign: "top",keyboardType:"numeric", },
+            
           ]}
+          
         />
         </View>
         <Text
@@ -179,8 +171,9 @@ const Avaliar = ({ navigation, route}) => {
             Styles.input,
             { marginTop: 15, height: 135, verticalAlign: "top" },
           ]}
+          defaultValue={avaliacao.comentario}
         />
-        <Pressable style={[Styles.pressable, { marginTop: 15 }]} onPress={cadastrar}>
+        <Pressable style={[Styles.pressable, { marginTop: 15 }]} onPress={atualizar} >
           <Text
             style={{
               fontFamily: "texto",
@@ -196,4 +189,4 @@ const Avaliar = ({ navigation, route}) => {
   );
 };
 
-export default Avaliar;
+export default Editar;

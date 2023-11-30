@@ -54,7 +54,7 @@ const Perfil = () => {
   useEffect(
     ()=>{
         FilmesServices.listarAvaliacoes(
-            firestoreDb,
+            firestoreDb," 507089 ",
             (filmes) => {
                 
                 setPopulares(filmes);

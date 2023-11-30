@@ -16,9 +16,55 @@ import logo from "../../assets/preto.png";
 import { useState } from "react";
 import { ScrollView } from "react-native";
 import Populares from "../Filme/Populares";
+import FilmesServices from "../Services/FilmesServices";
+import { firestoreDb } from "../firebase/firebase_config";
 
 const Carrosel = ({ navigation }) => {
   const [filmes, setFilmes] = useState([]);
+
+  const [populares2,setPopulares2] = useState([])
+    const [lista,setLista] = useState([])
+    const compararPorNota = (a, b) => b.nota - a.nota;
+
+    const buscarFilme = async (id) => {
+      const options = { method: 'GET', headers: { accept: 'application/json', Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZTE2Mjk4Y2UxOWY3ODhkM2Y5YmU2ZjgwNWYxMDRlMSIsInN1YiI6IjY1NWQwOTBjZjY3ODdhMDExZDVmMjVmOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.tlrbUkhJz4-XJeL9arziMXffI-CF57CJIQ94YV2M6bA' } };
+  
+      try {
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?language=pt-BR`, options);
+        const data = await response.json();
+        
+        return data; // Retorna o objeto obtido na solicitação fetch
+      } catch (error) {
+        console.error(error);
+        throw error; // Lança o erro para que o chamador da função possa lidar com ele, se necessário
+      }
+    };
+
+    useEffect(
+        ()=>{
+            FilmesServices.listar(
+                firestoreDb,
+                (filmes) => {
+                    
+                    const compararPorNota = (a, b) => b.nota - a.nota;
+                    setPopulares2(filmes.sort(compararPorNota));
+                    filmes.map((filme, index) => {
+                      
+                      buscarFilme(filme.movieId)
+                        .then(filme2 => { 
+                          filme2.nota = filme.nota
+                          setLista(oldArray => [...oldArray, filme2]);
+                          
+                        })
+
+                    })
+
+                }
+            )
+            
+        },
+        []
+    )
 
   useEffect(() => {
     const options = {
@@ -69,7 +115,28 @@ const Carrosel = ({ navigation }) => {
           >
             Recentes
           </Text>
-          <Populares />
+          <ScrollView horizontal={true} style={{flexDirection: "row", width:"100%",position:"static"}}>
+            
+            {filmes.slice(4, 9).map((filme2,index) => {
+              let contagem = index + 1;
+                  return ( 
+                     
+                    <Pressable onPress={() => navigation.navigate("filme", { filme: filme2 })}>
+                      
+                      <Image
+                        source={{
+                          uri: `https://image.tmdb.org/t/p/original${filme2.poster_path}`,
+                        }}
+                        style={Styles.genero_img_recente}
+                      />
+                      <Text style={{color:"white",position:"absolute",bottom:0,fontSize:150,opacity:0.5}}>{contagem}</Text>
+                    </Pressable>
+                    
+                ); 
+                   
+            })}
+          
+        </ScrollView>
           <Text
             style={[
               Styles.fonte,
@@ -80,6 +147,7 @@ const Carrosel = ({ navigation }) => {
           </Text>
           <View style={Styles.genero}>
             {filmes.map((filme, index) => {
+              console.log(filmes)
               const isThirdInRow = (index + 1) % 3 === 0;
 
               return (

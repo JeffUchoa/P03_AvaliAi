@@ -10,6 +10,9 @@ import Perfil from "../Perfil/Perfil";
 import Populares from "../Filme/Populares";
 import Login from "../Login/Login";
 import CadastrarUsuario from "../Login/CadastrarUsuario";
+import Avaliacao from "../Filme/Avaliação";
+import Avaliar from "../Filme/Avaliar";
+import Editar from "../Filme/Editar";
 
 
 const Stack = createNativeStackNavigator()
@@ -93,7 +96,8 @@ const Menu = () => {
 
                 <Stack.Group screenOptions={{ presentation: "modal" }}>
                     {/* GRUPO DOS MODAIS */}
-                    
+                    <Stack.Screen options={{headerShown: false}} name="avaliar" component={Avaliar} />
+                    <Stack.Screen options={{headerShown: false}} name="editar" component={Editar} />
                 </Stack.Group>
             </Stack.Navigator>
 
